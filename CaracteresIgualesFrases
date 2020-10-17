@@ -1,0 +1,47 @@
+
+package caracteresigualesfrases;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CaracteresIgualesFrases 
+{
+    static String cadena1 = "articulacion";
+    static String cadena2 = "articulo";
+    static List<String> compara = new ArrayList();
+    public static void main(String[] args) 
+    {    
+        for (int i = 0; i <= cadena2.length(); i++) 
+        {
+            for (int j = i + 1; j <= cadena2.length(); j++) 
+            {
+                if (cadena1.contains(cadena2.substring(i, j))) 
+                {
+                    compara.add(cadena2.substring(i, j));
+                }
+            }
+        }
+
+        if (!compara.isEmpty()) 
+        {
+            int pos = 0;
+            if (compara.size() > 1) 
+            {
+                int n = compara.get(0).length();
+                for (int i = 1; i < compara.size(); i++) 
+                {
+                    if (compara.get(i).length() > n) 
+                    {
+                        n = compara.get(i).length();
+                        pos = i;
+                    }
+                }
+            }
+            if (compara.get(pos).length() > 2) 
+            {
+                System.out.println(compara.get(pos));
+            } else {
+                System.out.println(compara.get(pos) + " ....");
+            }
+        }
+    }
+}
